@@ -1,14 +1,16 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
-namespace TDS.Game.Player
+namespace TDS.Game.Zombie
 {
-    public class PlayerAttack : MonoBehaviour
+    public class ZombieAttack : MonoBehaviour
 
     {
-        [SerializeField] private PlayerAnimation _playerAnimation;
         [SerializeField] private GameObject _bulletPrefab;
         [SerializeField] private Transform _bulletSpawnPointTransform;
-        [SerializeField] private float _fireDelay = 0.3f;
+        [SerializeField] private float _fireDelay = 0.4f;
+        [SerializeField] private float _startTimeSpawn = 3f;
+        [SerializeField] private float _currentTimeSpawn = 0.5f;
 
         private Transform _cachedTransform;
         private float _delayTimer;
@@ -18,12 +20,18 @@ namespace TDS.Game.Player
             _cachedTransform = transform;
         }
 
+        private void Start()
+        {
+            StartCoroutine(SpawnWeaponRoutine());
+        }
+
         private void Update()
         {
             if (CanAttack())
             {
                 Attack();
             }
+
 
             TickTimer();
         }
@@ -35,7 +43,6 @@ namespace TDS.Game.Player
 
         private void Attack()
         {
-            _playerAnimation.PlayShoot();
             Instantiate(_bulletPrefab, _bulletSpawnPointTransform.position, _cachedTransform.rotation);
             _delayTimer = _fireDelay;
         }
@@ -43,6 +50,18 @@ namespace TDS.Game.Player
         private void TickTimer()
         {
             _delayTimer -= Time.deltaTime;
+        }
+
+        private IEnumerator SpawnWeaponRoutine()
+        {
+            yield return new WaitForSeconds(_startTimeSpawn);
+
+            while (true)
+            {
+                Attack();
+
+                yield return new WaitForSeconds(_currentTimeSpawn);
+            }
         }
     }
 }

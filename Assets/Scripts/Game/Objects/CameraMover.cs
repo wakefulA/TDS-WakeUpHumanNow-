@@ -2,7 +2,7 @@
 
 namespace TDS.Game.Objects
 {
-    public class CameraMover: MonoBehaviour
+    public class CameraMover : MonoBehaviour
     {
         [SerializeField] private Transform _follow;
         private Transform _cachedTransform;
