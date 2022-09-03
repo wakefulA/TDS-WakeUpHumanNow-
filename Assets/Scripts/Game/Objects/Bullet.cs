@@ -16,14 +16,14 @@ namespace TDS.Game.Objects
         private void Update()
         {
             Transform transform1 = transform;
-            RaycastHit2D hitInfo = Physics2D.Raycast(transform1.position, transform1.up, whatIsSolid);
-            if (hitInfo.collider != null)
+            RaycastHit2D hitInfo = Physics2D.Raycast(transform1.position, transform1.up, 1, whatIsSolid);
+            if (hitInfo.collider != null &&  hitInfo.collider.CompareTag("Player"))
+
             {
-                if (hitInfo.collider.CompareTag("Player"))
-                {
-                    Player.Player.Instance.ChangeHealth(damage:1);
-                }
+                Player.Player.Instance.ChangeHealth(damage:1);
+                Destroy(gameObject);
             }
+            
         }
 
         private void Awake()
