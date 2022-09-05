@@ -20,7 +20,7 @@ namespace TDS.Game.Objects
             if (hitInfo.collider != null &&  hitInfo.collider.CompareTag("Player"))
 
             {
-                Player.Player.Instance.ChangeHealth(damage:1);
+                hitInfo.collider.gameObject.GetComponent<Player.PlayerHealth>().ApplyHeal(heal:1);
                 Destroy(gameObject);
             }
             

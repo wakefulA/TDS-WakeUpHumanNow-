@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4733764634210315059}
   - component: {fileID: 5073439684963303042}
   - component: {fileID: 2563537647845138541}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ MonoBehaviour:
   _lifeTime: 3
   whatIsSolid:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 128
 --- !u!1 &3972393653109372893
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,7 +82,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6145951489468127224}
   - component: {fileID: 1846998174524416187}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

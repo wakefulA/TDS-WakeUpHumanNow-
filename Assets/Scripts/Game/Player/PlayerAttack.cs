@@ -3,7 +3,6 @@
 namespace TDS.Game.Player
 {
     public class PlayerAttack : MonoBehaviour
-
     {
         [SerializeField] private PlayerAnimation _playerAnimation;
         [SerializeField] private GameObject _bulletPrefab;

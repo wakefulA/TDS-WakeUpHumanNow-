@@ -3,7 +3,6 @@
 namespace TDS.Game.Player
 {
     public class PlayerAnimation : MonoBehaviour
-
     {
         [SerializeField] private Animator _animator;
 
@@ -15,6 +14,12 @@ namespace TDS.Game.Player
         public void SetSpeed(float speed)
         {
             _animator.SetFloat("Speed", speed);
+        }
+
+        public void PlayDeath()
+        {
+            Debug.LogError("Player dead");
+         //_animator.SetTrigger("Death");
         }
     }
 }

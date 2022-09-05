@@ -12,12 +12,12 @@ TagManager:
   - Solid
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Zombie
+  - PlayerBullet
+  - EnemyBullet
+  - EnemyAgro
+  - EnemyAttack
   - 
   - 
   - 

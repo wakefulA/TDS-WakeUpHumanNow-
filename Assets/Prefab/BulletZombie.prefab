@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6818031644825476022}
   - component: {fileID: -8224588116993620152}
   - component: {fileID: 8508801237146146498}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BulletZombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ MonoBehaviour:
   _lifeTime: 3
   whatIsSolid:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 64
 --- !u!1 &7405625465347050929
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,7 +82,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7759796620203646786}
   - component: {fileID: 7105393941954298691}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Shot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
