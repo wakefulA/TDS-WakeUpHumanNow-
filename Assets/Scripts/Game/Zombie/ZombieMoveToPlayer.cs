@@ -7,11 +7,8 @@ namespace TDS.Game.Zombie
     {
         [SerializeField] private ZombieMovement _enemyMovement;
         [SerializeField] private TriggerObserver _triggerObserver;
-        
 
         private Transform _playerTransform;
-
-        
 
         private void Start()
         {

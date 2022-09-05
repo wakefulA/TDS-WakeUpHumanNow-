@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 namespace TDS.Game.Player
 {
     [RequireComponent(typeof(Rigidbody2D))]
@@ -23,11 +22,8 @@ namespace TDS.Game.Player
 
         private void Update()
         {
-
             Move();
             Rotate();
-
-
         }
 
         private void Move()
@@ -36,10 +32,9 @@ namespace TDS.Game.Player
             float vertical = Input.GetAxisRaw("Vertical");
 
             Vector2 direction = new Vector2(horizontal, vertical);
-            Vector3 moveDelta =  direction * _speed ;
+            Vector3 moveDelta = direction * _speed;
             _rb.velocity = moveDelta;
             _playerAnimation.SetSpeed(direction.magnitude);
-
         }
 
         private void Rotate()

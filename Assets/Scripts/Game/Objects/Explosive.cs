@@ -1,15 +1,11 @@
-﻿using TDS.Game.Player;
-using TDS.Game.Zombie;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace TDS.Game.Objects
 {
     public class Explosive : MonoBehaviour
 
     {
-
         [SerializeField] private int _damage;
-        
 
         private void Explode()
         {
