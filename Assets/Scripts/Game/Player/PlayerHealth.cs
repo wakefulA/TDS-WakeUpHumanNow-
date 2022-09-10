@@ -22,7 +22,7 @@ namespace TDS.Game.Player
 
         public void ApplyDamage(int damage)
         {
-            CurrentHp -= Mathf.Max(0, CurrentHp - damage);
+            CurrentHp = Mathf.Max(0, CurrentHp - damage);
             OnChanged?.Invoke(CurrentHp);
         }
 

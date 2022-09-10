@@ -219,13 +219,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 154226943666023365}
+  - component: {fileID: 4578397091758845900}
   - component: {fileID: 5364398709439375740}
   - component: {fileID: 913684011970771647}
   - component: {fileID: 4697314094230380123}
   - component: {fileID: 9056009393973201112}
   - component: {fileID: 7105968472276584931}
-  - component: {fileID: 5097653999384434954}
-  - component: {fileID: 4578397091758845900}
+  - component: {fileID: 4939829812430491728}
   - component: {fileID: 7981169686095558497}
   - component: {fileID: 69795731036246057}
   m_Layer: 7
@@ -255,6 +255,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 155.266}
+--- !u!114 &4578397091758845900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7725517648863483587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfbfb19752f847779c282bd452cf30a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletPrefab: {fileID: 3343137056113487906, guid: a961032bc574c904c9edc94916536cee, type: 3}
+  _bulletSpawnPointTransform: {fileID: 6734073861805667891}
+  _startTimeSpawn: 3
+  _currentTimeSpawn: 0.5
 --- !u!114 &5364398709439375740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,7 +338,7 @@ MonoBehaviour:
   _triggerObserver: {fileID: 3770394434822730838}
   _attack: {fileID: 0}
   _zombieMovement: {fileID: 0}
---- !u!114 &5097653999384434954
+--- !u!114 &4939829812430491728
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -331,25 +347,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7725517648863483587}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd859f5c558f4d8dbc0cead4179fb780, type: 3}
+  m_Script: {fileID: 11500000, guid: e38b0a6d68b14ad197ed3f0bc248b2d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4578397091758845900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7725517648863483587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfbfb19752f847779c282bd452cf30a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 3343137056113487906, guid: a961032bc574c904c9edc94916536cee, type: 3}
-  _bulletSpawnPointTransform: {fileID: 6734073861805667891}
-  _startTimeSpawn: 3
-  _currentTimeSpawn: 0.5
+  _speed: 4
 --- !u!50 &7981169686095558497
 Rigidbody2D:
   serializedVersion: 4

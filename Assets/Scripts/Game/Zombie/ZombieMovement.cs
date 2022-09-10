@@ -24,7 +24,7 @@ namespace TDS.Game.Zombie
 
         private void FixedUpdate()
         {
-            if (IsTargetValid())
+            if (!IsTargetValid())
                 return;
 
             MoveToTarget();
