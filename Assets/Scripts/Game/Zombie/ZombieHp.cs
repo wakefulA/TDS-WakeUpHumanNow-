@@ -23,7 +23,7 @@ namespace TDS.Game.Zombie
 
     public void ApplyDamage(int damage)
     {
-        CurrentHp -= Mathf.Max(0, CurrentHp - damage);
+        CurrentHp = Mathf.Max(0, CurrentHp - damage);
         OnChanged?.Invoke(CurrentHp);
     }
 
@@ -32,5 +32,8 @@ namespace TDS.Game.Zombie
         CurrentHp = Mathf.Min(_maxHp, CurrentHp + heal);
         OnChanged?.Invoke(CurrentHp);
     }
+    
+    
+    
     }
 }

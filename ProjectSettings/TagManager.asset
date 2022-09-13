@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Zombie
+  - ZombieCop
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - EnemyAgro
   - EnemyAttack
   - ZombieCop
-  - 
+  - Medicine
   - 
   - 
   - 
@@ -39,9 +40,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1323849169
+    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: New Layer 1
-    uniqueID: 1323849169
     locked: 0

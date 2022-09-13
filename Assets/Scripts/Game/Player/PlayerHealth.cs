@@ -8,6 +8,8 @@ namespace TDS.Game.Player
     {
         [SerializeField] public int _startHp;
         [SerializeField] private int _maxHp;
+      
+        
 
         public event Action<int> OnChanged; 
 
@@ -42,10 +44,17 @@ namespace TDS.Game.Player
       // TODO : Play death animation
       //     }
       //  }
-      // public void ChangeHealth(int damage)
-      //  {
-      //  _health -= damage;
-      //}
-      
+      //public void ChangeHealth(int damage)
+    //  {
+     // _health -= damage;
+     //// }
+
+     // private void Update()
+     // {
+      //    if (_health <= 0)
+       //   {
+       //       Destroy(gameObject);
+         // }
+     // }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using TDS.Game.Manager;
+using TDS.Game.Zombie;
 using UnityEngine;
 
 namespace TDS.Game.Objects
@@ -10,20 +12,20 @@ namespace TDS.Game.Objects
         [SerializeField] private float _lifeTime = 3f;
 
         private Rigidbody2D _rb;
-        private int _damage;
+        public int heal;
         public LayerMask whatIsSolid;
 
         private void Update()
         {
             Transform transform1 = transform;
             RaycastHit2D hitInfo = Physics2D.Raycast(transform1.position, transform1.up, 1, whatIsSolid);
-            if (hitInfo.collider != null &&  hitInfo.collider.CompareTag("Player"))
+            if (hitInfo.collider != null && hitInfo.collider.CompareTag("Player"))
 
             {
-                hitInfo.collider.gameObject.GetComponent<Player.PlayerHealth>().ApplyHeal(heal:1);
+                hitInfo.collider.GetComponent<Player.PlayerHealth>().ApplyHeal(heal);
                 Destroy(gameObject);
             }
-            
+
         }
 
         private void Awake()
@@ -39,5 +41,7 @@ namespace TDS.Game.Objects
 
             Destroy(gameObject);
         }
+
+        
     }
 }

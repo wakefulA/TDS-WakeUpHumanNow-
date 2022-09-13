@@ -69,9 +69,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 10
   _lifeTime: 3
+  heal: 1
   whatIsSolid:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 72
 --- !u!1 &7405625465347050929
 GameObject:
   m_ObjectHideFlags: 0
