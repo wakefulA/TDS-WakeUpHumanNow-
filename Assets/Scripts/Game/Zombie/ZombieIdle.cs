@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using TDS.Game.Zombie.Base;
+
 
 namespace TDS.Game.Zombie
 {
-    public class ZombieIdle : MonoBehaviour
+    public class ZombieIdle : ZombieBehaviour
     {
+        
     }
 }

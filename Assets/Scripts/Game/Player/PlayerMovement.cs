@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace TDS.Game.Player
@@ -18,6 +20,11 @@ namespace TDS.Game.Player
             _rb = GetComponent<Rigidbody2D>();
             _cachedTransform = transform;
             _mainCamera = Camera.main;
+        }
+
+        private void OnDisable()
+        {
+            _rb.velocity = Vector2.zero;
         }
 
         private void Update()

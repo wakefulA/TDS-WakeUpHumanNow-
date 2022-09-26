@@ -1,11 +1,12 @@
 ﻿using TDS.Game.Player;
+using TDS.Game.Zombie.Base;
 using UnityEngine;
 
 namespace TDS.Game.Zombie
 {
-    public class ZombieMoveToPlayer : MonoBehaviour
+    public class ZombieMoveToPlayer : ZombieFollow
     {
-        [SerializeField] private ZombieMovement _enemyMovement;
+        [SerializeField] private ZombieMovement _movement;
         [SerializeField] private TriggerObserver _triggerObserver;
 
         private Transform _playerTransform;
@@ -29,7 +30,7 @@ namespace TDS.Game.Zombie
 
         private void SetTarget(Transform target)
         {
-            _enemyMovement.SetTarget(target);
+            _movement.SetTarget(target);
         }
     }
 }

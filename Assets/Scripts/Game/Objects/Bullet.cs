@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using TDS.Game.Manager;
 using TDS.Game.Zombie;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace TDS.Game.Objects
@@ -10,6 +12,7 @@ namespace TDS.Game.Objects
     {
         [SerializeField] private float _speed = 10f;
         [SerializeField] private float _lifeTime = 3f;
+        [SerializeField] private int _damage = 1;
 
         private Rigidbody2D _rb;
         public int heal;
@@ -26,6 +29,12 @@ namespace TDS.Game.Objects
                 Destroy(gameObject);
             }
 
+        }
+
+        private void OnTriggerEnter2D(Collider2D col)
+        {
+            ZombieHp zombieHp = col.gameObject.GetComponentInParent<ZombieHp>();
+            zombieHp.ApplyDamage(_damage);
         }
 
         private void Awake()

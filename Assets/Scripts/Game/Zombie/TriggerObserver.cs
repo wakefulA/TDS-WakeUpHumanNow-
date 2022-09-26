@@ -13,5 +13,7 @@ namespace TDS.Game.Zombie
 
     private void OnTriggerExit2D(Collider2D other) =>
         OnExited?.Invoke(other);
+
+    public event Action<Collider2D> OnStayed;
     }
 }

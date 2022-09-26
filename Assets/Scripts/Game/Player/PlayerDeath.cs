@@ -8,6 +8,7 @@ namespace TDS.Game.Player
         [SerializeField] private PlayerAnimation _playerAnimation;
         [SerializeField] private PlayerMovement _playerMovement;
         [SerializeField] private PlayerAttack _playerAttack;
+        [SerializeField] private Collider2D _bodyCollider;
 
         public bool IsDead { get; private set; }
 
@@ -25,6 +26,7 @@ namespace TDS.Game.Player
             _playerAnimation.PlayDeath();
             _playerMovement.enabled = false;
             _playerAttack.enabled = false;
+            _bodyCollider.enabled = false;
         }
     }
 }
