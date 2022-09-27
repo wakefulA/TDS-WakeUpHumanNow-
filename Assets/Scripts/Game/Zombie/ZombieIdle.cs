@@ -3,7 +3,7 @@
 
 namespace TDS.Game.Zombie
 {
-    public class ZombieIdle : ZombieBehaviour
+    public  class ZombieIdle : ZombieBehaviour
     {
         
     }

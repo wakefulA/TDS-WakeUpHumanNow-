@@ -188,8 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec8a6f13e934e99a87b2f43356f5c59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyMovement: {fileID: 0}
-  _triggerObserver: {fileID: 0}
+  _movement: {fileID: 0}
 --- !u!114 &255006049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +201,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7bf674d74f645268d8e60849adc1b09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &255006056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255006041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6602490aece24e5eb09cd2c46fda58e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 2
+  _attackDelay: 0
+  _attackPoint: {fileID: 0}
+  _radius: 0
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!50 &255006057
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255006041}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &296898397
 GameObject:
   m_ObjectHideFlags: 0
@@ -2640,9 +2679,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.5062282}
   serializedVersion: 2
-  m_Radius: 2.56
+  m_Radius: 3.8761928
 --- !u!4 &499703913
 Transform:
   m_ObjectHideFlags: 0
@@ -3645,6 +3684,10 @@ GameObject:
   - component: {fileID: 1381833110}
   - component: {fileID: 1381833108}
   - component: {fileID: 1381833117}
+  - component: {fileID: 1381833118}
+  - component: {fileID: 1381833120}
+  - component: {fileID: 1381833119}
+  - component: {fileID: 1381833121}
   m_Layer: 7
   m_Name: Zombie
   m_TagString: Zombie
@@ -3744,8 +3787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec8a6f13e934e99a87b2f43356f5c59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyMovement: {fileID: 1381833116}
-  _triggerObserver: {fileID: 1698821211}
+  _movement: {fileID: 1381833116}
 --- !u!114 &1381833112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3797,8 +3839,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerObserver: {fileID: 499703911}
-  _meleeAttack: {fileID: 1381833105}
-  _zombieMovement: {fileID: 481072715}
+  _attack: {fileID: 1381833105}
+  _follow: {fileID: 1381833111}
 --- !u!114 &1381833116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3825,6 +3867,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hpBar: {fileID: 510904694}
+--- !u!114 &1381833118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381833103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7bf674d74f645268d8e60849adc1b09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1381833119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381833103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e891a008028740e499d02d53d52de69d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _idle: {fileID: 1381833118}
+--- !u!114 &1381833120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381833103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8496f74483e24a5ba2f535541e295858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _follow: {fileID: 1381833111}
+  _idle: {fileID: 1381833113}
+  _backToIdle: {fileID: 1381833119}
+  _triggerObserver: {fileID: 1698821211}
+  _obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &1381833121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381833103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e38b0a6d68b14ad197ed3f0bc248b2d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 4
 --- !u!1 &1449319354
 GameObject:
   m_ObjectHideFlags: 0
@@ -5699,7 +5798,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.9384686, y: 1}
+    m_SensorSize: {x: 0.8086758, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5832,9 +5931,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1381833105}
     - target: {fileID: 7105968472276584931, guid: 20198c9578ee3ac47b750c3a77fa899d, type: 3}
+      propertyPath: movement
+      value: 
+      objectReference: {fileID: 481072715}
+    - target: {fileID: 7105968472276584931, guid: 20198c9578ee3ac47b750c3a77fa899d, type: 3}
       propertyPath: _meleeAttack
       value: 
       objectReference: {fileID: 1381833105}
+    - target: {fileID: 7105968472276584931, guid: 20198c9578ee3ac47b750c3a77fa899d, type: 3}
+      propertyPath: _directMovement
+      value: 
+      objectReference: {fileID: 481072715}
     - target: {fileID: 7105968472276584931, guid: 20198c9578ee3ac47b750c3a77fa899d, type: 3}
       propertyPath: _zombieMovement
       value: 
@@ -5867,6 +5974,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ZombieCop
       objectReference: {fileID: 0}
+    - target: {fileID: 9056009393973201112, guid: 20198c9578ee3ac47b750c3a77fa899d, type: 3}
+      propertyPath: _movement
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056009393973201112, guid: 20198c9578ee3ac47b750c3a77fa899d, type: 3}
+      propertyPath: enemyMovement
+      value: 
+      objectReference: {fileID: 481072715}
     - target: {fileID: 9056009393973201112, guid: 20198c9578ee3ac47b750c3a77fa899d, type: 3}
       propertyPath: _enemyMovement
       value: 
@@ -5959,7 +6074,7 @@ PrefabInstance:
     - target: {fileID: 9040958989086625263, guid: 3bee58b09ab866a4c8002b057a2a2e65, type: 3}
       propertyPath: _follow
       value: 
-      objectReference: {fileID: 255006048}
+      objectReference: {fileID: 0}
     - target: {fileID: 9040958989427361857, guid: 3bee58b09ab866a4c8002b057a2a2e65, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.152

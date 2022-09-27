@@ -1,5 +1,7 @@
-﻿using TDS.Game.Player;
+﻿using System;
+using TDS.Game.Player;
 using TDS.Game.Zombie.Base;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace TDS.Game.Zombie
@@ -7,26 +9,43 @@ namespace TDS.Game.Zombie
     public class ZombieMoveToPlayer : ZombieFollow
     {
         [SerializeField] private ZombieMovement _movement;
-        [SerializeField] private TriggerObserver _triggerObserver;
+        
 
         private Transform _playerTransform;
 
         private void Start()
         {
             _playerTransform = FindObjectOfType<PlayerHealth>().transform;
-            _triggerObserver.OnEntered += OnEntered;
-            _triggerObserver.OnExited += OnExited;
+      
         }
 
-        private void OnEntered(Collider2D col)
+        public override void Activate()
         {
+            base.Activate();
             SetTarget(_playerTransform);
         }
-
-        private void OnExited(Collider2D other)
+        
+        public override void Deactivate()
         {
+            base.Deactivate();
             SetTarget(null);
         }
+
+      
+
+        private void OnDisable()
+        {
+           SetTarget(null);
+        }
+
+       //private void OnEntered(Collider2D col)
+       //{ SetTarget(_playerTransform);
+       //}
+
+       //private void OnExited(Collider2D other)
+       //{
+       //    SetTarget(null);
+       //}
 
         private void SetTarget(Transform target)
         {

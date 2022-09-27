@@ -13,15 +13,22 @@ namespace TDS.Game.Zombie
 
         private float _delayTimer;
 
-        private void Update()
+        protected override void OnUpdate()
         {
             TickTimer();
+        }
+
+        protected override void OnActiveUpdate()
+        {
+            base.OnActiveUpdate();
+            
+            Attack();
         }
 
         private void TickTimer() =>
             _delayTimer -= Time.deltaTime;
 
-        public override void Attack()
+        private void Attack()
         {
             if (CanAttack())
                 AttackInternal();

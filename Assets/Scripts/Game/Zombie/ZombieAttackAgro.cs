@@ -10,7 +10,7 @@ namespace TDS.Game.Zombie
         [SerializeField] private TriggerObserver _triggerObserver;
         [SerializeField] private ZombieAttack _attack;
         [SerializeField] private ZombieFollow _follow;
-        private bool _isInRange;
+        //private bool _isInRange;
 
         private void Start()
         {
@@ -18,11 +18,11 @@ namespace TDS.Game.Zombie
             _triggerObserver.OnExited += OnExited;
         }
 
-        private void Update()
-        {
-            if (_isInRange)
-                _attack.Attack();
-        }
+        //private void Update()
+        //{
+           // if (_isInRange)
+             //   _attack.Attack();
+       // }
 
         private void OnDestroy()
         {
@@ -32,14 +32,16 @@ namespace TDS.Game.Zombie
 
         private void OnEntered(Collider2D col)
         {
-            _isInRange = true;
-            _follow.enabled = false;
+            //_isInRange = true;
+            _follow.Deactivate();
+            _attack.Activate();
         }
 
         private void OnExited(Collider2D col)
         {
-            _isInRange = false;
-            _follow.enabled = true;
+            _attack.Deactivate();
+            //_isInRange = false;
+            _follow.Activate();
         }
     }
 }

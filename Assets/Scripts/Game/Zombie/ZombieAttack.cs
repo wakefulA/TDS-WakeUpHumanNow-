@@ -1,12 +1,8 @@
-﻿using UnityEngine;
+﻿using TDS.Game.Zombie.Base;
 
 namespace TDS.Game.Zombie
 {
-    public abstract class ZombieAttack : MonoBehaviour
+    public abstract class ZombieAttack : ZombieBehaviour
     {
-
-        public abstract void Attack();
-        
-
     }
 }

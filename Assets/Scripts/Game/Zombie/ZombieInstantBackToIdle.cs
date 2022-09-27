@@ -11,7 +11,7 @@ namespace TDS.Game.Zombie
 
         private void OnEnable()
         {
-            _idle.enabled = true;
+            _idle.enabled = true;    // _idle.Activate();
         }
     }
 }

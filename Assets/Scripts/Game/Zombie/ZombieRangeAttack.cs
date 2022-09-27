@@ -2,10 +2,5 @@
 {
     public class ZombieRangeAttack : ZombieAttack
     {
-        public override void Attack()
-        {
-            
-        }
-        
     }
 }

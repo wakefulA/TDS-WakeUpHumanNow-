@@ -2,7 +2,7 @@
 
 namespace TDS.Game.Zombie.Base
 {
-    public class ZombieBehaviour : MonoBehaviour
+    public abstract class ZombieBehaviour : MonoBehaviour
     {
         public bool IsActive { get; private set; }
 
