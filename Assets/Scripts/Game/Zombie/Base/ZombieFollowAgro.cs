@@ -48,7 +48,7 @@ namespace TDS.Game.Zombie.Base
             _isInAgro = false;
         }
 
-        private void EnterFollow()
+        private void EnterFollow()    //private void OnEntered(Collider2D col)
         {
             _isInAgro = true;
             if (_idle.IsActive)

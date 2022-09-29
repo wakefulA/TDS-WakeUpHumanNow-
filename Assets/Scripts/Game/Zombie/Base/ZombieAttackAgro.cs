@@ -26,8 +26,8 @@ namespace TDS.Game.Zombie
 
         private void OnDestroy()
         {
-            _triggerObserver.OnEntered -= OnEntered;
-            _triggerObserver.OnExited -= OnExited;
+        _triggerObserver.OnEntered -= OnEntered;
+        _triggerObserver.OnExited -= OnExited;
         }
 
         private void OnEntered(Collider2D col)
