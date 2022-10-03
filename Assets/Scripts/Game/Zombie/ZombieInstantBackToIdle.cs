@@ -9,9 +9,11 @@ namespace TDS.Game.Zombie
     {
         [SerializeField] private ZombieIdle _idle;
 
-        private void OnEnable()
+        public override void Activate()
         {
-            _idle.enabled = true;    // _idle.Activate();
+            base.Activate();
+            Deactivate();
+            _idle.Activate();
         }
     }
 }

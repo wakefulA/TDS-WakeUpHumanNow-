@@ -20,7 +20,7 @@ namespace TDS.Game.Shared
         {
             if (_health != null)
             {
-                _health.OnChanged += HpChanged;
+                _health.OnChanged -= HpChanged;
                 HpChanged(_health.CurrentHp);
             }
         }

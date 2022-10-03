@@ -5,6 +5,8 @@ namespace TDS.Game.Zombie
 {
     public class ZombieMeleeAttack : ZombieAttack
     {
+        
+        [SerializeField] private ZombieAnimation _animation;
         [SerializeField] private int _damage = 2;
         [SerializeField] private float _attackDelay;
         [SerializeField] private Transform _attackPoint;
@@ -12,6 +14,17 @@ namespace TDS.Game.Zombie
         [SerializeField] private LayerMask _layerMask;
 
         private float _delayTimer;
+        
+        public void PerformDamage()
+        {
+            Collider2D coll = Physics2D.OverlapCircle(_attackPoint.position, _radius, _layerMask);
+            if (coll == null)
+                return;
+
+            PlayerHealth playerHealth = coll.GetComponentInParent<PlayerHealth>();
+            if (playerHealth != null)
+                playerHealth.ApplyDamage(_damage);
+        }
 
         protected override void OnUpdate()
         {
@@ -40,13 +53,9 @@ namespace TDS.Game.Zombie
         private void AttackInternal()
         {
             _delayTimer = _attackDelay;
-            Collider2D coll = Physics2D.OverlapCircle(_attackPoint.position, _radius, _layerMask);
-            if (coll == null)
-                return;
-
-            PlayerHealth playerHealth = coll.GetComponentInParent<PlayerHealth>();
-            if (playerHealth != null)
-                playerHealth.ApplyDamage(_damage);
+            _animation.PlayAttack();
         }
+
+        
     }
 }
