@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace TDS.Game.Zombie
 {
@@ -7,20 +6,15 @@ namespace TDS.Game.Zombie
     public class ZombieDirectMovement : ZombieMovement     //Monobeh
     {
         [SerializeField] private float _speed = 4;
+        [SerializeField] private Transform _target;
 
         private Rigidbody2D _rb;
-        private Transform _target;
         private Transform _cachedTransform;
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
             _cachedTransform = transform;
-        }
-
-        private void OnDisable()
-        {
-            SetVelocity(Vector2.zero);
         }
 
         private void FixedUpdate()
@@ -32,6 +26,11 @@ namespace TDS.Game.Zombie
             RotateToTarget();
         }
 
+       private void OnDisable()
+       { 
+           SetVelocity(Vector2.zero);
+       }
+
         public override void SetTarget(Transform target)
         {
             _target = target;
@@ -40,8 +39,11 @@ namespace TDS.Game.Zombie
                 SetVelocity(Vector2.zero);
         }
 
-        private bool IsTargetValid() =>
-            _target != null;
+        private bool IsTargetValid()
+        { 
+            return _target != null;
+        }
+        
 
         private void MoveToTarget()
         {
