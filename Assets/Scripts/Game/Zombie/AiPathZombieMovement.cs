@@ -38,7 +38,7 @@ namespace TDS.Game.Zombie
 
             if (target == null)
             {
-                SetAnimationSpeed(1);
+                SetAnimationSpeed(0);
             }
         }
     }

@@ -13,7 +13,9 @@ namespace TDS.Game.Zombie
     {
         [SerializeField] private ZombieIdle _idle;
 
-        private void Start()
+      
+
+        public void Begin()
         {
             _idle.Activate();
         }

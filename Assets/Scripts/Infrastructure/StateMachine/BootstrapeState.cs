@@ -1,9 +1,11 @@
-﻿using TDS.Infrastructure.SceneLoader;
+﻿using TDS.Infrastructure.LoadingScreen;
+using TDS.Infrastructure.SceneLoader;
+using TDS.Infrastructure.Utility.Coroutine;
 using UnityEngine;
 
 namespace TDS.Infrastructure.StateMachine
 {
-    public class BootstrapeState : BaseState
+    public class BootstrapeState : BaseExitableState, IState
     {
         public BootstrapeState(IGameStateMachine gameStateMachine) : base(gameStateMachine)
         {
@@ -12,17 +14,11 @@ namespace TDS.Infrastructure.StateMachine
         
         public override void Enter()
         {
-            Debug.Log($"In BootstrapState");
 
             RegisterAllGlobalServices();
-            ISceneLoadService sceneLoadService = Services.Container.Get<ISceneLoadService>();
-            sceneLoadService.Load("MenuScene", OnSceneLoaded);
-
-        }
-
-        private void OnSceneLoaded()
-        {
             StateMachine.Enter<MenuState>();
+            
+
         }
 
         public override void Exit()
@@ -30,13 +26,14 @@ namespace TDS.Infrastructure.StateMachine
 
         }
 
-       
+      
 
         private void RegisterAllGlobalServices()
         {
-            
-            Services.Container.Register<ISceneLoadService>(new SyncSceneLoadService());
-
+           
+            Services.Container.RegisterMono<ICoroutineRunner>(typeof(CoroutineRunner));
+            Services.Container.Register<ISceneLoadService>(new AsyncSceneLoadService(Services.Container.Get<ICoroutineRunner>()));
+            Services.Container.Register<ILoadingScreenService>(new LoadingScreenService());
         }
     }
 }

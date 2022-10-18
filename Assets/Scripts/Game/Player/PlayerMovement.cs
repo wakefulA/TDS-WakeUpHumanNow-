@@ -16,7 +16,7 @@ namespace TDS.Game.Player
 
         public void Construct(IInputService inputService)
         {
-            _inputService = inputService; // injection depenc
+            _inputService = inputService; // injection dep
         }
 
         private void Awake()

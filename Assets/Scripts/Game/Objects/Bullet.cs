@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using Lean.Pool;
 using TDS.Game.Manager;
 using TDS.Game.Zombie;
 using Unity.VisualScripting;
@@ -15,6 +17,7 @@ namespace TDS.Game.Objects
         [SerializeField] private int _damage = 1;
 
         private Rigidbody2D _rb;
+        private IEnumerator _lifeTimeRoutine;
         public int heal;
         public LayerMask whatIsSolid;
 
@@ -35,22 +38,42 @@ namespace TDS.Game.Objects
         {
             ZombieHp zombieHp = col.gameObject.GetComponentInParent<ZombieHp>();
             zombieHp.ApplyDamage(_damage);
+            Despawn();
         }
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+          
+        }
+
+        private void OnEnable()
+        {
+        
             _rb.velocity = transform.up * _speed;
-            StartCoroutine(LifeTimeTimer());
+            _lifeTimeRoutine = LifeTimeTimer();
+            StartCoroutine(_lifeTimeRoutine);
+        }
+
+        private void OnDisable()
+        {
+            if (_lifeTimeRoutine != null)
+            {
+                StopCoroutine(_lifeTimeRoutine);
+                _lifeTimeRoutine = null;
+            }
         }
 
         IEnumerator LifeTimeTimer()
         {
             yield return new WaitForSeconds(_lifeTime);
 
-            Destroy(gameObject);
+            Despawn();
         }
 
-        
+        private void Despawn()
+        {
+            LeanPool.Despawn(gameObject);
+        }
     }
 }
